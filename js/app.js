@@ -104,9 +104,15 @@ const addActiveClass = (isInViewport) => {
         for (let i = 0; i < sec.length; i++) {
             const section = sec[i];
 
-            isInViewport(section)
-                ? section.classList.add("your-active-class")
-                : section.classList.remove("your-active-class");
+           if  (isInViewport(section)) {
+                 section.classList.add("your-active-class");
+               navMenu.children[i].classList.add("menu__link");
+           }
+            else  {
+                 
+                section.classList.remove("your-active-class");
+               navMenu.children[i].classList.remove("menu_link");
+            }
         }
     });
 };
